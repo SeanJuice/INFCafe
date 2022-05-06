@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title> Products </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Products</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card *ngFor="let product of allproducts; let i = index">
+    <ion-card-header>
+      <ion-card-subtitle>R{{product.productPrice}}</ion-card-subtitle>
+      <ion-card-title>{{product.productName}}</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content> {{product.productDescription}} </ion-card-content>
+    <ion-toolbar>
+      <ion-item slot="start">
+        <ion-label position="floating">Quantity</ion-label>
+        <ion-input
+          name="Quantity"
+          type="number"
+          [(ngModel)]="quantity[i]"
+        ></ion-input>
+        <ion-text color="danger" *ngIf="isError && i === rowNum"
+          ><sub>Please enter a quantity above zero</sub></ion-text
+        >
+      </ion-item>
+      <ion-button slot="end" (click)="AddToCart(product,quantity[i],i)"
+        ><ion-icon name="basket-outline"></ion-icon
+      ></ion-button>
+    </ion-toolbar>
+  </ion-card>
+</ion-content>

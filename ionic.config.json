@@ -1,5 +1,7 @@
 {
   "name": "INFCafe",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

@@ -1,0 +1,18 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Tab 3
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item-divider *ngFor="let order of orderList">
+      <ion-label>
+        Order #{{order.orderId}} : {{order.date | date:'medium'}}
+      </ion-label>
+    </ion-item-divider>
+    </ion-list>
+
+</ion-content>
